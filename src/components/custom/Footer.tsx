@@ -83,7 +83,7 @@ const Footer = () => {
               <div className="flex flex-col gap-1 ">
                 <div className="flex  items-center">
                   <AiOutlineMail className="inline-block mr-2 text-lg" />
-                  <span>info@gaber-wear.com</span>
+                  <span>info@chemodos.com</span>
                 </div>
                 <div className="flex  items-center">
                   <GrLocation className="inline-block mr-2 text-lg" />

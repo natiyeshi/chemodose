@@ -16,11 +16,11 @@ const Layout = async ({ children }: any) => {
       <div className="w-[450px] flex flex-col bg-gray-50 rounded-xl h-full">
         <div className="pt-5 ps-5 text-xl font-black">Dashboards</div>
         <Link
-          href={"https://gaber-wear.com/"}
+          href={"https://chemodos.com/"}
           target="_blank"
           className="pt-2 ps-5 text-sm hover:text-primary duration-150 flex gap-2  items-center"
         >
-          <span>gaber-wear.com</span>
+          <span>chemodos.com</span>
           <FaArrowRight className="-rotate-[40deg] text-xs" />
         </Link>
         <div className="mt-12 w-full flex flex-col gap-1 overflow-auto">

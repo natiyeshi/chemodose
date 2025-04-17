@@ -28,13 +28,13 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     type: "website",
-    url: "https://gaber-wear.com",
+    url: "https://chemodos.com",
     title: "Gaber Wear - Leading Garment Factory in Ethiopia",
     description:
       "Discover Gaber Wear, a top garment manufacturer in Addis Ababa, Ethiopia, providing high-quality t-shirts and custom apparel.",
     images: [
       {
-        url: "https://gaber-wear.com/og-image.jpg",
+        url: "https://chemodos.com/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Gaber Wear Garment Factory",
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     site: "@yourtwitterhandle",
     title: "Gaber Wear - Garment Factory in Addis Ababa",
     description: "Leading t-shirt and garment manufacturer in Ethiopia.",
-    images: ["https://gaber-wear.com/og-image.jpg"],
+    images: ["https://chemodos.com/og-image.jpg"],
   },
 };
 
