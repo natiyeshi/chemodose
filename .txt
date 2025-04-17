@@ -1,28 +1,19 @@
-footer and mobile link
-images
-
-backend 
-    - contact us
-    - blog
-    - partners
+- about
+    - company history 
+    - mission ...
+    - core values
+    - team and experience
+- contact us
+    - contact
+- services
+    - key services
+    - core values
+- products
     - products
 
 
-- blog 
-- products
-
-finalized 
-- Compaany company spelling
-- products
-- adding blog
-- contact us everywhere
-- check gaps
-    - in our story
-
-todo
-- footer
-- email
-- check link
-- keywords , seo
-
+https://www.pinterest.com/pin/779333910550068574/visual-search/?surfaceType=flashlight&rs=search
+https://www.pinterest.com/pin/351912465702419/visual-search/?surfaceType=flashlight&rs=flashlight
+https://www.pinterest.com/pin/6755468182966307/
+https://www.pinterest.com/pin/930204498035756514/
 
