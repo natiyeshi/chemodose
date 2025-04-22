@@ -6,17 +6,22 @@ mongoose.Promise = global.Promise;
 const productSchema = new Schema(
   {
     image : {
+      type: String,
+      required: true,
+  },
+    name : {
         type: String,
         required: true,
     },
-    tag : {
+    desc : {
         type: String,
         required: true,
     },
-    group : {
-        type: String,
-        required: true,
-      },
+    isFeatured : {
+      type: Boolean,
+      required: false,
+      default : false,
+  },
   },
   {
     timestamps: true,

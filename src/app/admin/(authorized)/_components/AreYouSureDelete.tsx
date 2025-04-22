@@ -27,8 +27,13 @@ const AreYouSureDelete = ({ onDelete }: { onDelete: Function }) => {
         toast({
           description: "Item Deleted Succesfully!",
         });
+        setIsOpen(res);
+      } else {
+        toast({
+          description: "Item Not Deleted!",
+        });
+        setIsOpen(false);
       }
-      setIsOpen(res);
     } catch (error) {
       setIsOpen(false);
     }

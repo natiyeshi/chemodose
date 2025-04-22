@@ -7,8 +7,13 @@ export async function POST(req: any) {
     try {
       const body = await req.json();
       const messageData = body.formData;
+      console.log(messageData,"okay")
       await messageValidation.validate(messageData);
+      console.log(messageData,"Valid")
+
       const newMessage = await Message.create(messageData);
+      console.log(newMessage,"updated")
+
       return NextResponse.json(
         { message: "Message created successfully!" , newMessage },
         { status: 200 }

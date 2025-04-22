@@ -9,11 +9,59 @@ import { MapPin, Phone, Mail, Clock, Send } from "lucide-react";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
+import { useState } from "react";
 
 export default function ContactPageClient() {
   const { ref: headerRef, isInView: headerInView } = useScrollReveal();
   const { ref: formRef, isInView: formInView } = useScrollReveal();
   const { ref: mapRef, isInView: mapInView } = useScrollReveal();
+
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phoneNumber: "",
+    message: "",
+  });
+
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const handleChange = (e: any) => {
+    const { id, value } = e.target;
+    setFormData((prev) => ({ ...prev, [id]: value }));
+  };
+
+  const handleSubmit = async (e: any) => {
+    e.preventDefault();
+    setError("");
+    setSuccess("");
+    setLoading(true);
+
+    try {
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/api/message`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ formData }),
+        }
+      );
+
+      const data = await res.json();
+
+      if (!res.ok) throw new Error(data.message || "Something went wrong.");
+
+      setSuccess("Message sent successfully!");
+      setFormData({ name: "", email: "", phoneNumber: "", message: "" });
+    } catch (err: any) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="flex min-h-screen flex-col">
@@ -90,8 +138,8 @@ export default function ContactPageClient() {
                 }`}
                 style={{ animationDelay: headerInView ? "200ms" : "0ms" }}
               >
-                We&apos;re here to help. Reach out to us for any inquiries about our
-                products and services.
+                We&apos;re here to help. Reach out to us for any inquiries about
+                our products and services.
               </p>
             </div>
           </div>
@@ -108,7 +156,7 @@ export default function ContactPageClient() {
                   possible.
                 </p>
 
-                <form className="space-y-6">
+                {/* <form className="space-y-6">
                   <div className="grid gap-4 sm:grid-cols-2">
                     <div className="space-y-2">
                       <Label htmlFor="first-name">First name</Label>
@@ -161,6 +209,62 @@ export default function ContactPageClient() {
                     className="w-full bg-teal-600 hover:bg-teal-700"
                   >
                     <Send className="mr-2 h-4 w-4" /> Send Message
+                  </Button>
+                </form> */}
+                <form className="space-y-6" onSubmit={handleSubmit}>
+                  <div className="space-y-2">
+                    <Label htmlFor="name">Name</Label>
+                    <Input
+                      id="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      placeholder="Enter your name"
+                      required
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="email">Email</Label>
+                    <Input
+                      id="email"
+                      type="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      placeholder="Enter your email"
+                      required
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="phoneNumber">Phone</Label>
+                    <Input
+                      id="phoneNumber"
+                      type="tel"
+                      value={formData.phoneNumber}
+                      onChange={handleChange}
+                      placeholder="Enter your phone number"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="message">Message</Label>
+                    <Textarea
+                      id="message"
+                      value={formData.message}
+                      onChange={handleChange}
+                      placeholder="Enter your message"
+                      className="min-h-[120px] resize-none"
+                      required
+                    />
+                  </div>
+                  {error && <p className="text-red-500 text-sm">{error}</p>}
+                  {success && (
+                    <p className="text-green-600 text-sm">{success}</p>
+                  )}
+                  <Button
+                    type="submit"
+                    className="w-full bg-teal-600 hover:bg-teal-700"
+                    disabled={loading}
+                  >
+                    <Send className="mr-2 h-4 w-4" />
+                    {loading ? "Sending..." : "Send Message"}
                   </Button>
                 </form>
               </div>

@@ -4,6 +4,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Phone } from "lucide-react"
 import { useScrollReveal } from "@/hooks/use-scroll-reveal"
+import Logo  from "@/components/logo"
 
 export default function CtaSection() {
   const { ref: sectionRef, isInView } = useScrollReveal()
@@ -31,7 +32,7 @@ export default function CtaSection() {
             <Button asChild size="lg" className="bg-teal-500 hover:bg-teal-600">
               <Link href="/contact">GET IN TOUCH</Link>
             </Button>
-            <Button asChild variant="outline" size="lg" className="border-white text-white hover:bg-white/10">
+            <Button asChild variant="outline" size="lg" >
               <Link href="tel:+251914314158" className="flex items-center gap-2">
                 <Phone className="h-4 w-4" />
                 Call +251914314158

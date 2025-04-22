@@ -36,11 +36,15 @@ const links: Props[] = [
     Icon: FaPeopleGroup,
   },
   {
-    name: "Blog",
-    link: "/admin/blog",
-    Icon: FaBloggerB,
+    name: "Supplier",
+    link: "/admin/supplier",
+    Icon: LuBuilding2, // Updated to supplier icon
   },
-
+  {
+    name: "Testimonials",
+    link: "/admin/testimonials",
+    Icon: AiFillProduct, // Changed to testminoy icon
+  },
 ];
 
 export default function AdminLinks() {

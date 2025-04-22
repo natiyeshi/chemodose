@@ -14,46 +14,33 @@ import {
 } from "@/components/ui/alert-dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { IoMdAddCircle } from "react-icons/io";
 import { IoCloseSharp } from "react-icons/io5";
 import { CiImageOn } from "react-icons/ci";
 import Image from "next/image";
 import { uploadImage } from "@/utils/helper";
 import { useToast } from "@/hooks/use-toast";
-import { IProduct } from "@/interfaces/product.interface";
-import productValidationSchema from "@/validation/product.validation";
+import { ISupplier } from "@/interfaces/supplier.interface";
 
-const Addproduct = ({ setProducts }: { setProducts: Function }) => {
+const Addsupplier = ({ setSuppliers }: { setSuppliers: Function }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isFeatured, setIsFeatured] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<null | string>(null);
   const [image, setImage] = useState<File | null>(null);
   const [imagePreview, setImagePreview] = useState<string | null>(null);
-  const [name, setName] = useState("");
-  const [desc, setDesc] = useState("");
   const fileInputRef = useRef<HTMLInputElement | null>(null);
   const { toast } = useToast();
-
   const handleSubmit = async () => {
+    setLoading(true);
+    const { url, error: e } = await uploadImage(image);
+    if (e) {
+      setLoading(false);
+      return alert("Unable to upload image!");
+    }
     try {
-      await productValidationSchema.validate({
-        name,
-        desc,
-        isFeatured,
-      });
-
-      setLoading(true);
-      const { url, error: e } = await uploadImage(image);
-      if (e) {
-        setLoading(false);
-        return alert("Unable to upload image!");
-      }
-
-      const res = await fetch("/api/product", {
+      const res = await fetch("/api/supplier", {
         method: "POST",
-        body: JSON.stringify({ formData: { name, desc, image: url, isFeatured } }),
+        body: JSON.stringify({ formData: { image: url } }),
       });
 
       if (!res.ok) {
@@ -61,39 +48,45 @@ const Addproduct = ({ setProducts }: { setProducts: Function }) => {
         setError(response.message);
       } else {
         const response = await res.json();
-        setProducts((prev: IProduct[]) => [...prev, response.newProduct]);
-        setError(null);
+        console.log(response,"___")
+        setSuppliers((test: ISupplier[]) => [...test, response.newsupplier]);
+        setError("");
         setIsOpen(false);
         toast({
-          description: "Product Added Successfully",
+          description: "Suppliers Added Succesfully",
         });
       }
-    } catch (validationError: any) {
-      setError(validationError.message);
-    } finally {
-      setLoading(false);
+    } catch (err) {
+      setError("something goes wrong");
     }
+    setLoading(false);
   };
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
       setImage(file);
-      setImagePreview(URL.createObjectURL(file));
+      setImagePreview(URL.createObjectURL(file)); // Create a preview URL for the image
+    }
+  };
+
+  const handleButtonClick = () => {
+    if (fileInputRef.current) {
+      fileInputRef.current.click();
     }
   };
 
   return (
     <AlertDialog open={isOpen} onOpenChange={setIsOpen}>
-      <AlertDialogTrigger className="flex cursor-pointer gap-2 items-center font-semibold duration-200 hover:bg-gray-200 rounded-xl px-2">
+      <AlertDialogTrigger className="flex cursor-pointer gap-2 place-items-center font-semibold duration-200 hover:bg-gray-200 rounded-xl px-2">
         <IoMdAddCircle />
-        <div>Add Product</div>
+        <div>Add Supplier</div>
       </AlertDialogTrigger>
-      <AlertDialogContent className="min-w-[600px] overflow-auto h-[97vh]">
+      <AlertDialogContent className="min-w-[600px]">
         <form onSubmit={(e) => e.preventDefault()}>
           <AlertDialogHeader>
-            <AlertDialogTitle className="flex justify-between items-center border-b pb-2">
-              <div>Add Product</div>
+            <AlertDialogTitle className="flex justify-between place-items-center border-b pb-2">
+              <div>Add Supplier</div>
               <IoCloseSharp
                 className="cursor-pointer"
                 onClick={() => setIsOpen(false)}
@@ -101,28 +94,6 @@ const Addproduct = ({ setProducts }: { setProducts: Function }) => {
             </AlertDialogTitle>
             <AlertDialogDescription className="flex flex-col w-full pb-14 pt-5">
               <div className="flex flex-col gap-2 w-full">
-                <div>Name</div>
-                <Input
-                  placeholder="Name"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                />
-                <div className="mb-2 mt-4">Description</div>
-                <Input
-                  placeholder="Description"
-                  value={desc}
-                  onChange={(e) => setDesc(e.target.value)}
-                />
-                <div className="flex gap-2 mt-4 items-center">
-                  <div className="  ">Featured</div>
-                  <Input
-                    className=" h-fit w-[1rem] px-3"
-                    type="checkbox"
-                    checked={isFeatured}
-                    onChange={(e) => setIsFeatured(d => !d)}
-                  />
-                </div>
-
                 <input
                   ref={fileInputRef}
                   hidden
@@ -142,7 +113,7 @@ const Addproduct = ({ setProducts }: { setProducts: Function }) => {
                   </div>
                 ) : (
                   <div
-                    onClick={() => fileInputRef.current?.click()}
+                    onClick={handleButtonClick}
                     className="w-full flex mx-2 my-2 cursor-pointer hover:bg-gray-300 duration-200 rounded border py-12 border-dashed h-full"
                   >
                     <div className="flex flex-col m-auto">
@@ -155,17 +126,15 @@ const Addproduct = ({ setProducts }: { setProducts: Function }) => {
               {error && <div className="text-red-500 text-sm">{error}</div>}
             </AlertDialogDescription>
           </AlertDialogHeader>
+
           <AlertDialogFooter>
             {imagePreview && (
-              <Button
-                variant="outline"
-                onClick={() => fileInputRef.current?.click()}
-              >
+              <Button variant={"outline"} onClick={handleButtonClick}>
                 Change Image
               </Button>
             )}
             <Button
-              disabled={!imagePreview || loading}
+              disabled={!imagePreview || loading ? true : false}
               type="submit"
               onClick={handleSubmit}
             >
@@ -178,4 +147,4 @@ const Addproduct = ({ setProducts }: { setProducts: Function }) => {
   );
 };
 
-export default Addproduct;
+export default Addsupplier;
