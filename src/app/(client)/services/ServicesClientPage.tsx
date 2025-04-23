@@ -13,45 +13,46 @@ import img3 from "@/../public/assets/images/serv3.png"
 import img4 from "@/../public/assets/images/serv4.png"
 import img5 from "@/../public/assets/images/serv5.png"
 import lab from "@/../public/assets/images/lab.png"
+import { services } from "@/components/sections/services-section"
 
 
-const services = [
-  {
-    title: "Pharmaceutical Import & Distribution",
-    description:
-      "We import and distribute high-quality medicines, medical devices, and consumables from trusted international manufacturers. Our extensive distribution network ensures timely delivery to healthcare facilities across Ethiopia.",
-    icon: FileText,
-    image: img,
-  },
-  {
-    title: "Regulatory Compliance Support",
-    description:
-      "Our team of regulatory experts helps healthcare providers navigate the complex regulatory landscape. We ensure all products meet national healthcare standards and comply with local and international regulations.",
-    icon: ClipboardCheck,
-    image: img2,
-  },
-  {
-    title: "Healthcare Partnerships",
-    description:
-      "We build strategic partnerships with hospitals, clinics, and pharmacies to provide reliable supply chains and expert guidance. Our collaborative approach ensures healthcare providers have access to the medicines they need.",
-    icon: HeartPulse,
-    image: img3,
-  },
-  {
-    title: "Supply Chain Management",
-    description:
-      "Our advanced supply chain management system optimizes the distribution network to ensure timely delivery of pharmaceutical products. We maintain strict quality control throughout the entire supply chain.",
-    icon: TruckIcon,
-    image: img4,
-  },
-  {
-    title: "Healthcare Consultancy",
-    description:
-      "Our experienced consultants provide expert guidance on pharmaceutical practices, regulatory compliance, and market access. We help healthcare providers optimize their pharmaceutical operations.",
-    icon: ShieldCheck,
-    image: img5,
-  },
-]
+// const services = [
+//   {
+//     title: "Pharmaceutical Import & Distribution",
+//     description:
+//       "We import and distribute high-quality medicines, medical devices, and consumables from trusted international manufacturers. Our extensive distribution network ensures timely delivery to healthcare facilities across Ethiopia.",
+//     icon: FileText,
+//     image: img,
+//   },
+//   {
+//     title: "Regulatory Compliance Support",
+//     description:
+//       "Our team of regulatory experts helps healthcare providers navigate the complex regulatory landscape. We ensure all products meet national healthcare standards and comply with local and international regulations.",
+//     icon: ClipboardCheck,
+//     image: img2,
+//   },
+//   {
+//     title: "Healthcare Partnerships",
+//     description:
+//       "We build strategic partnerships with hospitals, clinics, and pharmacies to provide reliable supply chains and expert guidance. Our collaborative approach ensures healthcare providers have access to the medicines they need.",
+//     icon: HeartPulse,
+//     image: img3,
+//   },
+//   {
+//     title: "Supply Chain Management",
+//     description:
+//       "Our advanced supply chain management system optimizes the distribution network to ensure timely delivery of pharmaceutical products. We maintain strict quality control throughout the entire supply chain.",
+//     icon: TruckIcon,
+//     image: img4,
+//   },
+//   {
+//     title: "Healthcare Consultancy",
+//     description:
+//       "Our experienced consultants provide expert guidance on pharmaceutical practices, regulatory compliance, and market access. We help healthcare providers optimize their pharmaceutical operations.",
+//     icon: ShieldCheck,
+//     image: img5,
+//   },
+// ]
 
 const additionalServices = [
   {

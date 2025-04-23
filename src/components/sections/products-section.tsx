@@ -105,7 +105,7 @@ export default function ProductsSection() {
               className="flex transition-transform duration-500 ease-in-out"
               style={{ transform: `translateX(-${currentIndex * 33.33}%)` }}
             >
-              {products.map((product, index) => (
+              {products && products.map((product, index) => (
                 <div key={index} className="w-full flex-none px-2 md:w-1/3">
                   <Card className="h-full border-0 shadow-md hover:shadow-lg transition-all duration-300 hover:translate-y-[-5px]">
                     <div className="relative aspect-square w-full overflow-hidden rounded-t-lg bg-gray-100">

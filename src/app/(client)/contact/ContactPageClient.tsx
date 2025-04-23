@@ -298,7 +298,7 @@ export default function ContactPageClient() {
                             Addis Ababa, Ethiopia
                           </p>
                           <p className="text-gray-700">
-                            Bole Sub-City, Woreda 03
+                            Nifas silk lafto wereda 12
                           </p>
                         </div>
                       </div>
@@ -314,7 +314,6 @@ export default function ContactPageClient() {
                         <div>
                           <h3 className="font-semibold">Phone Numbers</h3>
                           <p className="text-gray-700 mt-1">+251 914 314 158</p>
-                          <p className="text-gray-700">+251 344 417 432</p>
                         </div>
                       </div>
                     </CardContent>
@@ -383,7 +382,7 @@ export default function ContactPageClient() {
             >
               <div className="aspect-video w-full">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126766.39805562324!2d38.6530791!3d8.9806034!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b85cef5ab402d%3A0x8467b6b037a24d49!2sAddis%20Ababa%2C%20Ethiopia!5e0!3m2!1sen!2sus!4v1650000000000!5m2!1sen!2sus"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3114.9499672603374!2d38.72498367375173!3d8.957787190102216!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b814c7e5f69d9%3A0xa174bb5a3ae8827b!2sChemodose%20Pharmaceuticals!5e1!3m2!1sen!2sus!4v1745407851573!5m2!1sen!2sus"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}

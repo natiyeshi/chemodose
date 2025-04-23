@@ -1,43 +1,90 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { ArrowRight, FileText, HeartPulse, ShieldCheck, TruckIcon, ClipboardCheck } from "lucide-react"
-import { useScrollReveal } from "@/hooks/use-scroll-reveal"
+import Link from "next/link";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import {
+  ArrowRight,
+  FileText,
+  HeartPulse,
+  ShieldCheck,
+  TruckIcon,
+  ClipboardCheck,
+} from "lucide-react";
+import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 
-const services = [
+import img from "@/../public/assets/images/phar.png";
+import img2 from "@/../public/assets/images/serv2.png";
+import img3 from "@/../public/assets/images/serv3.png";
+import img4 from "@/../public/assets/images/serv4.png";
+import img5 from "@/../public/assets/images/serv5.png";
+import lab from "@/../public/assets/images/lab.png";
+
+export const services = [
+  {
+    title: "Supply of Human Medicines, Medical Equipments & Supplies",
+    description:
+      "Providing a wide range of human medicines, medical equipment, and essential supplies to healthcare providers.",
+    icon: FileText,
+    image: img,
+  },
+  {
+    title: "Supply of Research and Laboratory Equipment",
+    description:
+      "Delivering high-quality research and laboratory equipment to support scientific advancements.",
+    icon: ClipboardCheck,
+    image: img2,
+  },
+  {
+    title: "Supply of Veterinary Medicines, Equipments & Supplies",
+    description:
+      "Ensuring the availability of veterinary medicines and equipment to support animal healthcare.",
+    icon: HeartPulse,
+    image: img3,
+  },
   {
     title: "Pharmaceutical Import & Distribution",
     description:
       "Importing and distributing high-quality medicines and delivering essential medicines across Ethiopia.",
     icon: FileText,
+    image: img4,
   },
-  {
-    title: "Regulatory Compliance",
-    description:
-      "Ensuring all products meet national healthcare standards and compliance with local and international regulations.",
-    icon: ClipboardCheck,
-  },
-  {
-    title: "Healthcare Partnerships",
-    description: "Supporting hospitals, clinics, and pharmacies with reliable supply chains and expert guidance.",
-    icon: HeartPulse,
-  },
+  // {
+  //   title: "Regulatory Compliance",
+  //   description:
+  //     "Ensuring all products meet national healthcare standards and compliance with local and international regulations.",
+  //   icon: ClipboardCheck,
+  // },
+  // {
+  //   title: "Healthcare Partnerships",
+  //   description:
+  //     "Supporting hospitals, clinics, and pharmacies with reliable supply chains and expert guidance.",
+  //   icon: HeartPulse,
+  // },
   {
     title: "Supply Chain Management",
     description:
       "Optimizing the distribution network to ensure timely delivery of pharmaceutical products across Ethiopia.",
     icon: TruckIcon,
+    image: img5,
   },
   {
     title: "Healthcare Consultancy",
-    description: "Offering expert guidance on pharmaceutical practices, regulatory compliance, and market access.",
+    description:
+      "Offering expert guidance on pharmaceutical practices, regulatory compliance, and market access.",
     icon: ShieldCheck,
+    image: lab,
   },
-]
+];
 
 export default function ServicesSection() {
-  const { ref: sectionRef, isInView } = useScrollReveal()
+  const { ref: sectionRef, isInView } = useScrollReveal();
 
   return (
     <section id="services" className="py-16 md:py-24" ref={sectionRef}>
@@ -47,8 +94,9 @@ export default function ServicesSection() {
             Our <span className="text-teal-500">Services</span>
           </h2>
           <p className="mt-2 text-gray-700 md:text-lg">
-            At Chemodose Pharmaceuticals, we provide a wide range of pharmaceutical solutions to support healthcare
-            providers across Ethiopia.
+            At Chemodose Pharmaceuticals, we provide a wide range of
+            pharmaceutical solutions to support healthcare providers across
+            Ethiopia.
           </p>
         </div>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -58,7 +106,9 @@ export default function ServicesSection() {
               className={`border-0 shadow-md transition-all duration-300 hover:shadow-lg hover:translate-y-[-5px] ${
                 isInView ? "animate-fade-up" : "opacity-0"
               }`}
-              style={{ animationDelay: isInView ? `${(index + 1) * 100}ms` : "0ms" }}
+              style={{
+                animationDelay: isInView ? `${(index + 1) * 100}ms` : "0ms",
+              }}
             >
               <CardHeader className="bg-[#0a3141] text-white">
                 <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-full bg-teal-500/20 group-hover:bg-teal-500/30 transition-colors duration-300">
@@ -67,7 +117,9 @@ export default function ServicesSection() {
                 <CardTitle className="text-xl">{service.title}</CardTitle>
               </CardHeader>
               <CardContent className="pt-4">
-                <CardDescription className="text-gray-700">{service.description}</CardDescription>
+                <CardDescription className="text-gray-700">
+                  {service.description}
+                </CardDescription>
               </CardContent>
               <CardFooter>
                 <Link
@@ -83,5 +135,5 @@ export default function ServicesSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }
