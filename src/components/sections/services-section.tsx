@@ -25,6 +25,7 @@ import img3 from "@/../public/assets/images/serv3.png";
 import img4 from "@/../public/assets/images/serv4.png";
 import img5 from "@/../public/assets/images/serv5.png";
 import lab from "@/../public/assets/images/lab.png";
+import agri from "@/../public/assets/images/image.png";
 
 export const services = [
   {
@@ -48,6 +49,7 @@ export const services = [
     icon: HeartPulse,
     image: img3,
   },
+ 
   {
     title: "Pharmaceutical Import & Distribution",
     description:
@@ -55,18 +57,13 @@ export const services = [
     icon: FileText,
     image: img4,
   },
-  // {
-  //   title: "Regulatory Compliance",
-  //   description:
-  //     "Ensuring all products meet national healthcare standards and compliance with local and international regulations.",
-  //   icon: ClipboardCheck,
-  // },
-  // {
-  //   title: "Healthcare Partnerships",
-  //   description:
-  //     "Supporting hospitals, clinics, and pharmacies with reliable supply chains and expert guidance.",
-  //   icon: HeartPulse,
-  // },
+  {
+    title: "Agricultural and Environmental Inputs",
+    description:
+      "Providing sustainable agricultural and environmental solutions to support eco-friendly practices and productivity.",
+    icon: ClipboardCheck,
+    image: agri,
+  },
   {
     title: "Supply Chain Management",
     description:
@@ -81,6 +78,7 @@ export const services = [
     icon: ShieldCheck,
     image: lab,
   },
+ 
 ];
 
 export default function ServicesSection() {
