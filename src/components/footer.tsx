@@ -128,7 +128,7 @@ export default function Footer() {
                     href="tel:+251344417432"
                     className="text-gray-300 hover:text-teal-400"
                   >
-                    +251 344 417 432
+                    +251 945 794 450
                   </a>
                 </div>
               </li>

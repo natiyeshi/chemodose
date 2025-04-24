@@ -314,6 +314,8 @@ export default function ContactPageClient() {
                         <div>
                           <h3 className="font-semibold">Phone Numbers</h3>
                           <p className="text-gray-700 mt-1">+251 914 314 158</p>
+                          <p className="text-gray-700 mt-1">+251 945 794 450</p>
+                        
                         </div>
                       </div>
                     </CardContent>
