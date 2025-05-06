@@ -163,10 +163,10 @@ export default function ProductsClientPage() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const data: IProduct[] = await response.json();
         const response = await fetch(
           `${process.env.NEXT_PUBLIC_API_URL}/api/product/`
         );
+        const data: IProduct[] = await response.json();
         setProducts(data);
       } catch (error) {
         console.error("Error fetching products:", error);
