@@ -107,10 +107,10 @@ export default function Footer() {
                   </a>
                   <br />
                   <a
-                    href="mailto:chemodose@gmail.com"
+                    href="mailto:chemodospharma@gmail.com"
                     className="text-gray-300 hover:text-teal-400"
                   >
-                    chemodose@gmail.com
+                    chemodospharma@gmail.com
                   </a>
                 </div>
               </li>
@@ -125,7 +125,7 @@ export default function Footer() {
                   </a>
                   <br />
                   <a
-                    href="tel:+251344417432"
+                    href="tel:+251945794450"
                     className="text-gray-300 hover:text-teal-400"
                   >
                     +251 945 794 450
