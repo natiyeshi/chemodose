@@ -16,6 +16,7 @@ import {
   ShieldCheck,
   TruckIcon,
   ClipboardCheck,
+  Droplet,
 } from "lucide-react";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 
@@ -49,7 +50,13 @@ export const services = [
     icon: HeartPulse,
     image: img3,
   },
- 
+  {
+    title: "Supply of Water Quality Control and Consumables Inputs",
+    description:
+      "Providing comprehensive water quality testing equipment and consumables to ensure safe and clean water standards.",
+    icon: Droplet,
+    image: lab,
+  },
   {
     title: "Pharmaceutical Import & Distribution",
     description:
@@ -71,13 +78,13 @@ export const services = [
     icon: TruckIcon,
     image: img5,
   },
-  {
-    title: "Healthcare Consultancy",
-    description:
-      "Offering expert guidance on pharmaceutical practices, regulatory compliance, and market access.",
-    icon: ShieldCheck,
-    image: lab,
-  },
+  // {
+  //   title: "Healthcare Consultancy",
+  //   description:
+  //     "Offering expert guidance on pharmaceutical practices, regulatory compliance, and market access.",
+  //   icon: ShieldCheck,
+  //   image: lab,
+  // },
  
 ];
 
