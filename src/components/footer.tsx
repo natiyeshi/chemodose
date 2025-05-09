@@ -103,7 +103,7 @@ export default function Footer() {
                     href="mailto:info@chemodose.com"
                     className="text-gray-300 hover:text-teal-400"
                   >
-                    info@chemodose.com
+                    info@chemodos.com
                   </a>
                   <br />
                   <a
