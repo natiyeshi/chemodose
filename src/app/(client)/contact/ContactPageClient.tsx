@@ -330,9 +330,9 @@ export default function ContactPageClient() {
                         <div>
                           <h3 className="font-semibold">Email Addresses</h3>
                           <p className="text-gray-700 mt-1">
-                            info@chemodose.com
+                            info@chemodos.com
                           </p>
-                          <p className="text-gray-700">chemodose@gmail.com</p>
+                          <p className="text-gray-700">chemodospharma@gmail.com</p>
                         </div>
                       </div>
                     </CardContent>
